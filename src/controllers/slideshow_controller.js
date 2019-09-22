@@ -5,6 +5,7 @@ export default class extends Controller {
 
   initialize() {
     this.showCurrentSlide();
+    this.lastIndex = this.slideTargets.length - 1;
   }
 
   next() {
@@ -29,6 +30,13 @@ export default class extends Controller {
   }
 
   set index(value) {
+    // Wrap around first and last index
+    if (value < 0) {
+      value = this.lastIndex;
+    } else if (value > this.lastIndex) {
+      value = 0;
+    }
+
     this.data.set("index", value);
     this.showCurrentSlide();
   }
