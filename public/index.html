@@ -7,8 +7,8 @@
 </head>
 <body>
   <h1 data-controller="example"></h1>
+  <h2>Hello, Stimulus!</h2>
   <div data-controller="hello">
-    <h2>Hello, Stimulus!</h2>
     <input data-target="hello.name" type="text">
     <button data-action="click->hello#greet">Greet</button>
   </div>
@@ -25,6 +25,17 @@
   <div data-controller="clipboard">
     PIN: <textarea data-target="clipboard.source" readonly>4848</textarea>
     <a href="#" data-action="clipboard#copy" class="clipboard-button">Copy to Clipboard</a>
+  </div>
+
+  <h2>Slideshow</h2>
+  <div data-controller="slideshow">
+    <button data-action="slideshow#previous">←</button>
+    <button data-action="slideshow#next">→</button>
+
+    <div data-target="slideshow.slide" class="slide">🐵</div>
+    <div data-target="slideshow.slide" class="slide">🙈</div>
+    <div data-target="slideshow.slide" class="slide">🙉</div>
+    <div data-target="slideshow.slide" class="slide">🙊</div>
   </div>
 </body>
 </html>

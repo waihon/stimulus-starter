@@ -6,6 +6,22 @@ body {
   display: none;
 }
 
+/* .clipboard--supported .clipboard-button works */
+/* .clipboard--supported.clipboard-button doesn't work */
+/* .clipboard-button .clipboard--supported doesn't work */
+/* .clipboard-button.clipboard--supported doesn't work */
 .clipboard--supported .clipboard-button {
   display: initial;
+}
+
+.slide {
+  display: none;
+}
+
+/* .slide.slide--current works */
+/* .slide .slide--current doesn't work */
+/* .slide--current.slide works */
+/* .slide--current .slide doesn't work */
+.slide.slide--current {
+  display: block;
 }
