@@ -7,5 +7,10 @@
 </head>
 <body>
   <h1 data-controller="example"></h1>
+  <div data-controller="hello">
+    <h2>Hello, Stimulus!</h2>
+    <input data-target="hello.name" type="text">
+    <button data-action="click->hello#greet">Greet</button>
+  </div>
 </body>
 </html>
