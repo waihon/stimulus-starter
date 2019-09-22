@@ -4,24 +4,32 @@ export default class extends Controller {
   static targets = [ "slide" ];
 
   initialize() {
-    let index = parseInt(this.data.get("index"));
-    if (Number.isNaN(index)) index = 0;
-    this.showSlide(index);
+    this.showCurrentSlide();
   }
 
   next() {
-    this.showSlide(this.index + 1);
+    this.index++;
   }
 
   previous() {
-    this.showSlide(this.index - 1);
+    this.index--;
   }
 
-  showSlide(index) {
-    this.index = index;
+  showCurrentSlide(index) {
     this.slideTargets.forEach((el, i) => {
-      el.classList.toggle("slide--current", i === index);
+      el.classList.toggle("slide--current", i === this.index);
       console.log("showSlide", el);
     })
+  }
+
+  get index() {
+    let value = parseInt(this.data.get("index"));
+    if (Number.isNaN(value)) value = 0;
+    return value;
+  }
+
+  set index(value) {
+    this.data.set("index", value);
+    this.showCurrentSlide();
   }
 }
