@@ -9,10 +9,20 @@ export default class extends Controller {
     }
   }
 
+  disconnect() {
+    this.stopRefreshing();
+  }
+
   startRefreshing() {
-    setInterval(() => {
+    this.refreshTimer = setInterval(() => {
       this.load()
     }, this.data.get("refreshInterval"))
+  }
+
+  stopRefreshing() {
+    if (this.refreshTimer) {
+      clearInterval(this.refreshTimer);
+    }
   }
 
   load() {
