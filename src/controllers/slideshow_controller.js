@@ -4,7 +4,9 @@ export default class extends Controller {
   static targets = [ "slide" ];
 
   initialize() {
-    this.showSlide(0);
+    let index = parseInt(this.data.get("index"));
+    if (Number.isNaN(index)) index = 0;
+    this.showSlide(index);
   }
 
   next() {
